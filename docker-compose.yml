@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  service1:
+    container_name: service1
+    build: ./api-gateway
+    restart: always
+    ports:
+      - 9090:9090
+  service2:
+    container_name: service2
+    build: ./orders
+    restart: always
+    ports:
+      - 1000:1000
+  service3:
+    container_name: service3
+    build: ./payments
+    restart: always
+    ports:
+      - 2000:2000
+  mongodb:
+    image: mongo
+    container_name: mongo
+    ports:
+      - '27017:27017'
